@@ -1,0 +1,44 @@
+<div class="home">
+  <header class="home-wrapper">
+    <auth-brand />
+    <section>
+      <h1>Join thousands of learners from around the world</h1>
+      <p>Master web development by making real-life projects. There are multiple paths for you to choose</p>
+    </section>
+  </header>
+  <form  class="home-wrapper">
+    <!-- <label>
+      <span><img src="/assets/icons/mail.svg" alt=""></span>
+      <input type="text" placeholder="Name">
+    </label> -->
+    <auth-input
+      [invalid]="!formLoginGroup.get('password')?.valid && formLoginGroup.get('password')?.touched"
+      [control]="formLoginGroup.controls['password']"
+      placeholder="Name"
+      type="text" />
+    <auth-input
+      [invalid]="!formLoginGroup.get('password')?.valid && formLoginGroup.get('password')?.touched"
+      [control]="formLoginGroup.controls['password']"
+      placeholder="Password"
+      type="password" />
+    <!-- <label>
+      <span><img src="/assets/icons/lock.svg" alt=""></span>
+      <input type="text" placeholder="Password">
+    </label> -->
+    <input type="button" value="Start coding now">
+  </form>
+  <footer class="home-wrapper">
+    <section>
+      <p>or continue with these social profile</p>
+      <nav class="home-footer-social-nav">
+        <button class="home-footer-social-icon"></button>
+        <button class="home-footer-social-icon"></button>
+        <button class="home-footer-social-icon"></button>
+        <button class="home-footer-social-icon"></button>
+      </nav>
+    </section>
+    <section>
+      <p>Adready a member? <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></p>
+    </section>
+  </footer>
+</div>
