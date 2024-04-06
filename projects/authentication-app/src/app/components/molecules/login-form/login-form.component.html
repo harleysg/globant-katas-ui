@@ -1,0 +1,18 @@
+<div class="home">
+  <header class="home-wrapper">
+    <auth-brand />
+    <section>
+      <ng-content select="[heading]" />
+    </section>
+  </header>
+  <form class="home-wrapper" (ngSubmit)="submit()" [formGroup]="formLoginGroup">
+    <ng-content/>
+    <auth-input
+      name="submit"
+      [value]="sendLabel"
+      type="submit" />
+  </form>
+  <footer class="home-wrapper">
+    <ng-content select="[footer]" />
+  </footer>
+</div>
