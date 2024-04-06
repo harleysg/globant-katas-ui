@@ -1,0 +1,79 @@
+<div class="login">
+  <auth-login-form sendLabel="Login" (submitEmmiter)="submit()" [formLoginGroup]="formLoginGroup">
+    <ng-container heading>
+      <h1>Login</h1>
+    </ng-container>
+    <ng-container>
+      <auth-input
+        [invalid]="!formLoginGroup.get('email')?.valid && formLoginGroup.get('email')?.touched"
+        [control]="formLoginGroup.controls['email']"
+        [required]="true"
+        placeholder="Email"
+        name="email"
+        image="/assets/icons/mail.svg"
+        type="email" />
+      <div>
+        <auth-input
+          [invalid]="!formLoginGroup.get('password')?.valid && formLoginGroup.get('password')?.touched"
+          [control]="formLoginGroup.controls['password']"
+          [required]="true"
+          placeholder="Password"
+          name="password"
+          image="/assets/icons/lock.svg"
+          type="password" />
+          <ng-template [ngTemplateOutlet]="passwordWarningRef"></ng-template>
+      </div>
+      <!-- <ng-template [ngTemplateOutlet]="loginFailedRef"></ng-template> -->
+    </ng-container>
+    <ng-container footer>
+      <section>
+        <p>or continue with these social profile</p>
+        <nav class="home-footer-social-nav">
+          <button class="home-footer-social-icon"></button>
+          <button class="home-footer-social-icon"></button>
+          <button class="home-footer-social-icon"></button>
+          <button class="home-footer-social-icon"></button>
+        </nav>
+      </section>
+      <section>
+        <p>Adready a member? <a [routerLink]="['/']" routerLinkActive="router-link-active" >Register</a></p>
+      </section>
+    </ng-container>
+  </auth-login-form>
+</div>
+
+<!-- <ng-template #loginFailedRef>
+  @if (!formLoginGroup.valid) {
+    <span class="text-red-400 text-sm mt-0 m-auto">Usuario no valido</span>
+  }
+</ng-template> -->
+
+<ng-template #passwordWarningRef>
+  @if (formLoginGroup.get('password') && formLoginGroup.get('password')?.errors) {
+    @if (!formLoginGroup.get('password')?.valid && !formLoginGroup.get('password')?.errors?.['passwordStrength'] && formLoginGroup.get('password')?.touched) {
+      <small class="text-red-400">Invalid password pattern</small>
+    }
+    @if (formLoginGroup.get('password')?.errors?.['passwordStrength']) {
+      @if (!formLoginGroup.get('password')?.errors?.['passwordStrength']?.hasUpperCase) {
+        <span class="text-red-400">
+          Your password must have upper case.
+        </span>
+      }
+      @if (!formLoginGroup.get('password')?.errors?.['passwordStrength']?.hasLowerCase) {
+        <span class="text-red-400">
+          Your password must have lower case.
+        </span>
+      }
+      @if (!formLoginGroup.get('password')?.errors?.['passwordStrength']?.minimumLength) {
+        <span class="text-red-400">
+          Your password must have a minimum length.
+        </span>
+      }
+      @if (!formLoginGroup.get('password')?.errors?.['passwordStrength']?.hasNumeric) {
+        <span class="text-red-400">
+          Your password must have numeric character.
+        </span>
+      }
+    }
+  }
+</ng-template>
