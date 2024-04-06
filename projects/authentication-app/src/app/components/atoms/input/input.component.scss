@@ -1,0 +1,72 @@
+:host {
+  display: flex;
+  width: 100%;
+
+  --input-padding-inline: 1rem;
+}
+
+.border-red-400 {
+  --label-shadow: rgba(248 113 113 / 1);
+}
+
+label {
+  box-shadow: 0 0 0 1px var(--label-shadow, var(--app-brand-color-2));
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  width: 100%;
+
+  &.without-image {
+    --input-padding-left: var(--input-padding-inline);
+  }
+
+  &:has(input[type='submit']) {
+    box-shadow: none;
+  }
+
+  &:has(input:focus-visible) {
+    box-shadow: none;
+  }
+
+  span {
+    position: absolute;
+    left: 0;
+    aspect-ratio: 1 / 1;
+    width: 3rem;
+    padding: 0.9rem;
+    user-select: none;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+input {
+  width: 100%;
+}
+
+input:not([type='checkbox']),
+input:not([type='radio']) {
+  overflow: hidden;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+}
+
+input:not([type='button']),
+input:not([type='checkbox']),
+input:not([type='radio']) {
+  min-height: 3.25rem;
+  background-color: transparent;
+  padding-inline: var(--input-padding-left, 3rem var(--input-padding-inline));
+}
+
+input[type='submit'],
+input[type='button'] {
+  min-height: 2.7rem;
+  background-color: var(--app-brand-color-3);
+  font-size: calc(var(--app-font-size) * 1.6);
+  border: none;
+  cursor: pointer;
+}
