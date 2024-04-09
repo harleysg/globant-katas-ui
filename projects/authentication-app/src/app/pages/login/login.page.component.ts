@@ -13,10 +13,10 @@ export type LoginFormControl = {
 @Component({
   selector: 'auth-login',
   standalone: false,
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './login.page.component.html',
+  styleUrl: './login.page.component.scss'
 })
-export class LoginComponent {
+export class LoginPageComponent {
   public formLoginGroup!: FormGroup<LoginFormControl>
 
   constructor() {

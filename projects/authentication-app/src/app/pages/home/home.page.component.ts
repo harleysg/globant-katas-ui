@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BrandComponent } from '../../components/atoms/brand/brand.component';
-import { InputComponent } from '../../components/atoms/input/input.component';
+// -----
 import { compareControlsValidator, passwordValidator } from '@shared/validator'
+import { SharedModule } from '@shared/shared.module';
 
 /**
  * Login Flow / Payload
@@ -17,11 +17,11 @@ export type LoginFormControl = {
 @Component({
   selector: 'auth-home',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, BrandComponent, InputComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  imports: [RouterLink, ReactiveFormsModule, SharedModule],
+  templateUrl: './home.page.component.html',
+  styleUrl: './home.page.component.scss'
 })
-export class HomeComponent {
+export class HomePageComponent {
   public formLoginGroup!: FormGroup<LoginFormControl>
 
   constructor() {

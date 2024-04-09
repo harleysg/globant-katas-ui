@@ -1,0 +1,44 @@
+<div class="home">
+  <auth-login-form sendLabel="Start coding now" [formLoginGroup]="formLoginGroup">
+    <ng-container heading>
+      <section>
+        <h1>Join thousands of learners from around the world</h1>
+        <p>Master web development by making real-life projects. There are multiple paths for you to choose</p>
+      </section>
+    </ng-container>
+    <ng-container>
+      <auth-input
+        [invalid]="!formLoginGroup.get('password')?.valid && formLoginGroup.get('password')?.touched"
+        [control]="formLoginGroup.controls['password']"
+        placeholder="Name"
+        type="text" />
+      <auth-input
+        [invalid]="!formLoginGroup.get('password')?.valid && formLoginGroup.get('password')?.touched"
+        [control]="formLoginGroup.controls['password']"
+        placeholder="Password"
+        type="password" />
+    </ng-container>
+    <ng-container footer>
+      <section>
+        <p>or continue with these social profile</p>
+        <nav class="home-footer-social-nav">
+          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
+            <i class="fa-brands fa-google"></i>
+          </auth-button>
+          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
+            <i class="fa-brands fa-facebook-f"></i>
+          </auth-button>
+          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
+            <i class="fa-brands fa-twitter"></i>
+          </auth-button>
+          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
+            <i class="fa-brands fa-github"></i>
+          </auth-button>
+        </nav>
+      </section>
+      <section>
+        <p>Adready a member? <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></p>
+      </section>
+    </ng-container>
+  </auth-login-form>
+</div>

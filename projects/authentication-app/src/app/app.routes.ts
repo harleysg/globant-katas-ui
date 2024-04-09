@@ -4,22 +4,22 @@ export const routes: Routes = [
   {
     title: 'Home',
     path: '',
-    loadComponent: () => import('./pages/home/home.component').then(comp => comp.HomeComponent)
+    loadComponent: () => import('./pages/home/home.page.component').then(comp => comp.HomePageComponent)
   },
   {
     title: 'login',
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(mod => mod.LoginModule)
+    loadChildren: () => import('./pages/login/login.page.module').then(mod => mod.LoginPageModule)
   },
   {
     title: 'register',
     path: 'register',
-    loadComponent: () => import('./pages/register/register.component').then(comp => comp.RegisterComponent)
+    loadComponent: () => import('./pages/register/register.page.component').then(comp => comp.RegisterPageComponent)
   },
   {
     title: 'profile',
     path: 'profile',
-    loadComponent: () => import('./pages/profile/profile.component').then(comp => comp.ProfileComponent)
+    loadComponent: () => import('./pages/profile/profile.page.component').then(comp => comp.ProfilePageComponent)
   },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

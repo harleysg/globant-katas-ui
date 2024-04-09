@@ -6,58 +6,16 @@
 
 .home {
   width: 100%;
-  max-width: 33rem;
-  // min-height: 44rem;
   margin: auto;
-  padding-block: 3rem;
-  overflow: hidden;
-  border-radius: 2rem;
-  box-shadow: 0 0 0 2px var(--app-brand-color-2);
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+}
 
-  &-wrapper {
-    width: 100%;
-    max-width: 75%;
-    margin-inline: auto;
-  }
 
-  header {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    h1 {
-      font-size: calc(var(--app-font-size) * 1.8);
-      margin: 0;
-      font-weight: 600;
-      text-wrap: pretty;
-      max-width: 30ch;
-    }
-
-    p {
-      max-width: 40ch;
-    }
-
-    section {
-      display: flex;
-      flex-direction: column;
-      row-gap: 1rem;
-    }
-  }
-
-  // article {
-  //   display: flex;
-  //   flex-direction: column;
-  //   gap: 2rem;
-  // }
-
-  form {
+/*form {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    // padding-block: .5rem;
 
     label {
       box-shadow: 0 0 0 1px var(--app-brand-color-2);
@@ -141,5 +99,4 @@
         border-color: var(--app-brand-color-2);
       }
     }
-  }
-}
+  }*/

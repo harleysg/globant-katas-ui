@@ -1,5 +1,6 @@
 <div class="login">
-  <auth-login-form sendLabel="Login" (submitEmmiter)="submit()" [formLoginGroup]="formLoginGroup">
+  <auth-login-form
+    sendLabel="Login" (submitEmmiter)="submit()" [formLoginGroup]="formLoginGroup">
     <ng-container heading>
       <h1>Login</h1>
     </ng-container>
@@ -23,16 +24,23 @@
           type="password" />
           <ng-template [ngTemplateOutlet]="passwordWarningRef"></ng-template>
       </div>
-      <!-- <ng-template [ngTemplateOutlet]="loginFailedRef"></ng-template> -->
     </ng-container>
     <ng-container footer>
       <section>
         <p>or continue with these social profile</p>
         <nav class="home-footer-social-nav">
-          <button class="home-footer-social-icon"></button>
-          <button class="home-footer-social-icon"></button>
-          <button class="home-footer-social-icon"></button>
-          <button class="home-footer-social-icon"></button>
+          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
+            <i class="fa-brands fa-google"></i>
+          </auth-button>
+          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
+            <i class="fa-brands fa-facebook-f"></i>
+          </auth-button>
+          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
+            <i class="fa-brands fa-twitter"></i>
+          </auth-button>
+          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
+            <i class="fa-brands fa-github"></i>
+          </auth-button>
         </nav>
       </section>
       <section>
