@@ -1,4 +1,7 @@
 @use './assets/styles/reset.scss';
+@use './assets/fonts/fontawesome/scss/fontawesome.scss';
+@use './assets/fonts/fontawesome/scss/solid';
+@use './assets/fonts/fontawesome/scss/brands';
 
 :root {
   --app-font-size: 10px;
@@ -12,9 +15,6 @@
 }
 
 html {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
