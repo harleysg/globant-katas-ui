@@ -10,7 +10,7 @@
 }
 
 label {
-  box-shadow: 0 0 0 1px var(--label-shadow, var(--app-brand-color-2));
+  box-shadow: 0 0 0 1px var(--label-shadow, var(--app-brand-color-2)) inset;
   overflow: hidden;
   border-radius: 8px;
   position: relative;
