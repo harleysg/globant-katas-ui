@@ -13,7 +13,7 @@ import { InputComponent } from '../../atoms/input/input.component';
 })
 export class LoginFormComponent {
   @Input() sendLabel: string = ''
-  @Input() formLoginGroup!: FormGroup<any>
+  @Input() formLoginGroup: FormGroup<any> = new FormGroup({})
 
   submitEmmiter = output<any>()
 

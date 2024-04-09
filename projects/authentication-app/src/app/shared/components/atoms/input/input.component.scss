@@ -20,11 +20,8 @@ label {
     --input-padding-left: var(--input-padding-inline);
   }
 
+  &:has(input:focus-visible),
   &:has(input[type='submit']) {
-    box-shadow: none;
-  }
-
-  &:has(input:focus-visible) {
     box-shadow: none;
   }
 

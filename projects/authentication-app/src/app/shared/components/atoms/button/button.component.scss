@@ -1,0 +1,77 @@
+.c-btn {
+  --c-button-border-width: 1px;
+  --c-button-border-radius: 5px;
+  --c-button-style: solid;
+  --c-button-padding-inline: 5px;
+  --c-button-padding-block: 5px;
+  --c-button-width: initial;
+  --c-button-min-width: 30px;
+
+  display: var(--c-button-display, initial);
+  justify-content: var(--c-button-justify, center);
+  align-items: var(--c-button-align, center);
+  background-color: var(--c-button-bg, var(--theme-primary-color));
+  border-color: var(--c-button-border-color, var(--theme-primary-color));
+  border-width: var(--c-button-border-width);
+  border-style: var(--c-button-style, var(--theme-color-black));
+  color: var(--c-button-color, var(--theme-color-white));
+  padding-inline: var(--c-button-padding-inline);
+  padding-block: var(--c-button-padding-block);
+  border-radius: var(--c-button-border-radius);
+  width: var(--c-button-width);
+  min-width: var(--c-button-min-width, 30px);
+  min-height: var(--c-button-min-height, 30px);
+  cursor: var(--c-button-pointer, pointer);
+  font-size: var(--theme-md-font-size);
+  font-weight: bold;
+
+  &--flat {
+    --c-button-bg: var(--theme-color-white);
+    --c-button-color: var(--theme-primary-color);
+    --c-button-border-color: var(--theme-color-white);
+  }
+
+  &--outline {
+    --c-button-bg: var(--theme-color-white);
+    --c-button-color: var(--theme-primary-color);
+    --c-button-border-color: transparent;
+  }
+
+  &--outline:hover {
+    --c-button-border-color: var(--theme-primary-color);
+  }
+
+  &--outline--base {
+    --c-button-bg: var(--theme-color-white);
+    --c-button-color: var(--theme-primary-color);
+  }
+
+  &--simetric {
+    --c-button-min-width: calc(var(--app-font-size) * var(--c-btn-aspect-ratio, 1));
+    --c-button-min-height: calc(var(--app-font-size) * var(--c-btn-aspect-ratio, 1));
+  }
+
+  &--middle {
+    --c-button-width: 50%;
+  }
+
+  &--plus {
+    --c-button-width: 75%;
+  }
+
+  &--large {
+    --c-button-width: 100%;
+    --c-button-padding-block: 20px;
+  }
+
+  &--rounded {
+    --c-button-border-radius: 50%;
+  }
+
+  &--disabled,
+  &[disabled] {
+    --c-button-bg: var(--theme-color-white-05);
+    --c-button-border-color: var(--theme-color-white-05);
+    --c-button-pointer: not-allowed;
+  }
+}
