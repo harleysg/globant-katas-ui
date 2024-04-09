@@ -1,0 +1,24 @@
+<section class="body" [ngClass]="{'hasForm': (useForm | async)}">
+  <header class="wrapper">
+    <ng-content select="[heading]" />
+  </header>
+  <ng-container *ngTemplateOutlet="(useForm | async) ? formRef : bodyRef"></ng-container>
+  <footer class="wrapper">
+    <ng-content select="[footer]"/>
+  </footer>
+</section>
+
+<ng-template #bodyRef>
+  <section class="wrapper">
+    <ng-container *ngTemplateOutlet="contentTmpl"></ng-container>
+  </section>
+</ng-template>
+<ng-template #formRef>
+  <form class="wrapper" (ngSubmit)="submit()" [formGroup]="formLoginGroup">
+    <ng-container *ngTemplateOutlet="contentTmpl"></ng-container>
+  </form>
+</ng-template>
+
+<ng-template #contentTmpl>
+  <ng-content></ng-content>
+</ng-template>
