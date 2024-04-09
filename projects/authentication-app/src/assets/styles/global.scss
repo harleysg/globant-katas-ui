@@ -1,0 +1,15 @@
+.o-wrapper {
+  width: 100%;
+  max-width: var(--app-theme-wrapper-size);
+  padding-inline: 1rem;
+}
+
+.o-heading {
+  &:is(h1) {
+    font-size: calc(var(--app-font-size) * 1.8);
+    margin: 0;
+    font-weight: 600;
+    text-wrap: pretty;
+    max-width: 30ch;
+  }
+}
