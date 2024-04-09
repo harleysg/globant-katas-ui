@@ -9,94 +9,10 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-}
 
+  --auth-wrapper-max-width: 33rem;
 
-/*form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-
-    label {
-      box-shadow: 0 0 0 1px var(--app-brand-color-2);
-      overflow: hidden;
-      border-radius: 8px;
-      position: relative;
-
-      span {
-        position: absolute;
-        left: 0;
-        aspect-ratio: 1 / 1;
-        width: 3rem;
-        padding: 0.9rem;
-        user-select: none;
-
-        img {
-          max-width: 100%;
-        }
-      }
-    }
-
-    input[type='text'],
-    input[type='button'] {
-      overflow: hidden;
-      border-radius: 8px;
-      border: none;
-      width: 100%;
-    }
-
-    input[type='text'] {
-      min-height: 3rem;
-      background-color: transparent;
-      padding-left: 3rem;
-    }
-
-    input[type='button'] {
-      min-height: 2.8rem;
-      background-color: var(--app-brand-color-3);
-      font-size: calc(var(--app-font-size) * 1.6);
-    }
-
-    &>* {
-      &:last-child {
-        margin-top: 0.4rem;
-      }
-    }
+  .heading {
+    max-width: 40ch;
   }
-
-  footer {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    section {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    p {
-      font-size: calc(var(--app-font-size) * 1.5);
-      color: lightgray;
-    }
-
-    .home-footer-social {
-      &-nav {
-        min-height: calc(var(--app-font-size) * 4.8);
-        display: flex;
-        justify-content: center;
-        gap: 1.4rem;
-      }
-
-      &-icon {
-        aspect-ratio: 1 / 1;
-        width: calc(var(--app-font-size) * 4.8);
-        background-color: transparent;
-        overflow: hidden;
-        border-radius: 100%;
-        border-style: solid;
-        border-color: var(--app-brand-color-2);
-      }
-    }
-  }*/
+}

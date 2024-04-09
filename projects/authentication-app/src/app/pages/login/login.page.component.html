@@ -1,8 +1,8 @@
-<div class="login">
-  <auth-login-form
+<div class="login o-wrapper">
+  <auth-wrapper
     sendLabel="Login" (submitEmmiter)="submit()" [formLoginGroup]="formLoginGroup">
     <ng-container heading>
-      <h1>Login</h1>
+      <h1 class="o-heading">Login</h1>
     </ng-container>
     <ng-container>
       <auth-input
@@ -24,30 +24,18 @@
           type="password" />
           <ng-template [ngTemplateOutlet]="passwordWarningRef"></ng-template>
       </div>
+      <auth-input name="submit" [value]="'Login'" type="submit" />
     </ng-container>
     <ng-container footer>
       <section>
         <p>or continue with these social profile</p>
-        <nav class="home-footer-social-nav">
-          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
-            <i class="fa-brands fa-google"></i>
-          </auth-button>
-          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
-            <i class="fa-brands fa-facebook-f"></i>
-          </auth-button>
-          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
-            <i class="fa-brands fa-twitter"></i>
-          </auth-button>
-          <auth-button [styles]="['rounded', 'simetric']" style="--c-btn-aspect-ratio: 4.8">
-            <i class="fa-brands fa-github"></i>
-          </auth-button>
-        </nav>
+        <auth-social-profile />
       </section>
       <section>
-        <p>Adready a member? <a [routerLink]="['/']" routerLinkActive="router-link-active" >Register</a></p>
+        <p>Adready a member? <a [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a></p>
       </section>
     </ng-container>
-  </auth-login-form>
+  </auth-wrapper>
 </div>
 
 <!-- <ng-template #loginFailedRef>
