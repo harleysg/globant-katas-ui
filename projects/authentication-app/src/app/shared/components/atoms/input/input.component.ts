@@ -11,7 +11,7 @@ import { NgClass } from '@angular/common';
 })
 export class InputComponent implements OnChanges {
   @Input() autocomplete: boolean = false;
-  @Input() control: FormControl = new FormControl();
+  @Input() control: FormControl<string> = new FormControl();
   @Input() pattern: string = '';
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
