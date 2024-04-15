@@ -1,11 +1,17 @@
 <section class="body" [ngClass]="{'hasForm': (useForm | async)}">
-  <header class="wrapper">
-    <ng-content select="[heading]" />
-  </header>
-  <ng-container *ngTemplateOutlet="(useForm | async) ? formRef : bodyRef"></ng-container>
-  <footer class="wrapper">
-    <ng-content select="[footer]"/>
-  </footer>
+  <div class="shadow">
+    <header class="wrapper">
+      <ng-content select="[heading]" />
+    </header>
+    <ng-container *ngTemplateOutlet="(useForm | async) ? formRef : bodyRef"></ng-container>
+    <footer class="wrapper">
+      <ng-content select="[footer]"/>
+    </footer>
+  </div>
+  <p class="copy-right">
+    <span>created by harleysg</span>
+    <span>devChallenges.io</span>
+  </p>
 </section>
 
 <ng-template #bodyRef>

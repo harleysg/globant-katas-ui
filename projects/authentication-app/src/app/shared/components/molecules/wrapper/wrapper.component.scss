@@ -12,19 +12,29 @@
 .body {
   width: 100%;
   margin: auto;
-  padding-block: 3rem;
   overflow: hidden;
-  border-radius: var(--auth-wrapper-border-radius, 12px);
-  box-shadow: 0 0 0 1.5px var(--auth-wrapper-shadow-color, transparent);
   display: flex;
   max-width: var(--auth-wrapper-max-width, auto);
   flex-direction: column;
-  gap: 2.5rem;
+  row-gap: 1rem;
 
   &.useForm {
     --auth-wrapper-border-radius: 2rem;
   }
 
+  .shadow {
+    padding-block: 3rem;
+    display: inherit;
+    flex-direction: column;
+    gap: 2.5rem;
+    box-shadow: 0 0 0 1.5px var(--auth-wrapper-shadow-color, transparent) inset;
+    border-radius: var(--auth-wrapper-border-radius, 12px);
+  }
+
+  .copy-right {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 
