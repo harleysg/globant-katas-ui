@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { compareControlsValidator, passwordValidator } from '@shared/validator';
 
 /**
  * Login Flow / Payload
@@ -20,23 +19,15 @@ export class LoginPageComponent {
   public formLoginGroup!: FormGroup<LoginFormControl>
 
   constructor() {
-    const formGroupConfig = {
-      validators: [
-        // compareControlsValidator('password', 'confirmPassword')
-      ]
-    }
     const controls = {
       email: new FormControl('', [
-        Validators.required,
-        // TODO: emailValidator()
+        Validators.required
       ]),
       password: new FormControl('', [
-        Validators.required,
-        // passwordValidator()
-        // TODO: passwordValidator()
+        Validators.required
       ])
     }
-    this.formLoginGroup = new FormGroup(controls, formGroupConfig)
+    this.formLoginGroup = new FormGroup(controls)
   }
 
   submit(): void {

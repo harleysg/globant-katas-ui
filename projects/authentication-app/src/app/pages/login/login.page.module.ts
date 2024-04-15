@@ -13,7 +13,8 @@ import { SharedModule } from '@shared/shared.module';
     NgTemplateOutlet,
     ReactiveFormsModule,
     LoginRoutingModule,
-    SharedModule],
+    SharedModule
+  ],
   exports: [],
   declarations: [LoginPageComponent],
   providers: [],
