@@ -1,5 +1,5 @@
 <div class="home o-wrapper">
-  <auth-wrapper sendLabel="Start coding now" [formLoginGroup]="formLoginGroup">
+  <auth-wrapper sendLabel="Start coding now" (submitEmmiter)="submit()" [formLoginGroup]="formLoginGroup">
     <ng-container heading>
       <header>
         <auth-brand />
@@ -11,11 +11,11 @@
     </ng-container>
     <ng-container>
       <auth-input
-        [invalid]="!formLoginGroup.get('password')?.valid && formLoginGroup.get('password')?.touched"
-        [control]="formLoginGroup.controls['password']"
+        [invalid]="!formLoginGroup.get('email')?.valid && formLoginGroup.get('email')?.touched"
+        [control]="formLoginGroup.controls['email']"
         placeholder="Name"
         image="/assets/icons/mail.svg"
-        type="text" />
+        type="email" />
       <auth-input
         [invalid]="!formLoginGroup.get('password')?.valid && formLoginGroup.get('password')?.touched"
         [control]="formLoginGroup.controls['password']"

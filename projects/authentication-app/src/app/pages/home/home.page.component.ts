@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 // -----
-import { compareControlsValidator, passwordValidator } from '@shared/validator'
 import { SharedModule } from '@shared/shared.module';
 
 /**
@@ -10,8 +9,7 @@ import { SharedModule } from '@shared/shared.module';
  */
 export type LoginFormControl = {
   email: FormControl,
-  password: FormControl,
-  confirmPassword: FormControl,
+  password: FormControl
 }
 
 @Component({
@@ -26,24 +24,26 @@ export class HomePageComponent {
 
   constructor() {
     const formGroupConfig = {
-      validators: [
-        compareControlsValidator('password', 'confirmPassword')
-      ]
+      validators: []
     }
     const controls = {
       email: new FormControl('', [
-        Validators.required,
-        // TODO: emailValidator()
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        passwordValidator()
-        // TODO: passwordValidator()
-      ]),
-      confirmPassword: new FormControl('', [
         Validators.required
       ]),
+      password: new FormControl('', [
+        Validators.required
+      ])
     }
     this.formLoginGroup = new FormGroup(controls, formGroupConfig)
+  }
+
+  submit(): void {
+    if (this.formLoginGroup.valid) {}
+
+    const { email, password } = this.formLoginGroup.value
+    console.log('👨‍🚀 ~ HomePageComponent ~ submit:', {
+      isValid: this.formLoginGroup.valid,
+      email, password
+    })
   }
 }
