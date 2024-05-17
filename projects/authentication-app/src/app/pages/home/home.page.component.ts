@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NgTemplateOutlet } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 // -----
 import { SharedModule } from '@shared/shared.module';
@@ -15,12 +16,12 @@ export type LoginFormControl = {
 @Component({
   selector: 'auth-home',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, SharedModule],
+  imports: [RouterLink, ReactiveFormsModule, SharedModule, NgTemplateOutlet],
   templateUrl: './home.page.component.html',
   styleUrl: './home.page.component.scss'
 })
 export class HomePageComponent {
-  public formLoginGroup!: FormGroup<LoginFormControl>
+  public formGroup!: FormGroup<LoginFormControl>
 
   constructor() {
     const formGroupConfig = {
@@ -34,16 +35,15 @@ export class HomePageComponent {
         Validators.required
       ])
     }
-    this.formLoginGroup = new FormGroup(controls, formGroupConfig)
+    this.formGroup = new FormGroup(controls, formGroupConfig)
   }
 
   submit(): void {
-    if (this.formLoginGroup.valid) {}
+    if (this.formGroup.valid) {}
 
-    const { email, password } = this.formLoginGroup.value
     console.log('👨‍🚀 ~ HomePageComponent ~ submit:', {
-      isValid: this.formLoginGroup.valid,
-      email, password
+      isValid: this.formGroup.valid,
+      value: this.formGroup.value
     })
   }
 }

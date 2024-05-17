@@ -1,0 +1,25 @@
+<header class="c-header">
+  <section class="o-wrapper c-header-wrapper">
+    <auth-brand />
+    <nav>
+      <ul>
+        <li><a [routerLink]="['/']" routerLinkActive="router-link-active" >Login</a></li>
+        <li><a [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profile</a></li>
+        <li><a [routerLink]="['/profile/edit']" routerLinkActive="router-link-active" >edit</a></li>
+      </ul>
+      <details>
+        <summary>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="">
+          username
+        </summary>
+        <ul>
+          <li><a href=""><i>icon</i> My Profile</a></li>
+          <li><a href=""><i>icon</i> Group Chat</a></li>
+          <ul>
+            <li class="last"><a href=""><i>icon</i> Logout</a></li>
+          </ul>
+        </ul>
+      </details>
+    </nav>
+  </section>
+</header>

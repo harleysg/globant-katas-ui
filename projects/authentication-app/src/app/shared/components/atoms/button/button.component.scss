@@ -4,14 +4,14 @@
   --c-button-style: solid;
   --c-button-padding-inline: 5px;
   --c-button-padding-block: 5px;
-  --c-button-width: initial;
+  --c-button-width: min-content;
   --c-button-min-width: 30px;
 
   display: var(--c-button-display, initial);
   justify-content: var(--c-button-justify, center);
   align-items: var(--c-button-align, center);
   background-color: var(--c-button-bg, var(--theme-primary-color));
-  border-color: var(--c-button-border-color, var(--theme-primary-color));
+  border-color: var(--c-button-border-color, var(--app-brand-color-5));
   border-width: var(--c-button-border-width);
   border-style: var(--c-button-style, var(--theme-color-black));
   color: var(--c-button-color, var(--theme-color-white));
@@ -26,9 +26,9 @@
   font-weight: bold;
 
   &--flat {
-    --c-button-bg: var(--theme-color-white);
-    --c-button-color: var(--theme-primary-color);
-    --c-button-border-color: var(--theme-color-white);
+    --c-button-bg: var(--theme-color-white, transparent);
+    --c-button-color: var(--theme-primary-color, currentColor);
+    --c-button-border-color: var(--theme-color-white, transparent);
   }
 
   &--outline {

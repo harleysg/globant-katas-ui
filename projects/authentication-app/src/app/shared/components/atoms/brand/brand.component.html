@@ -1,4 +1,23 @@
-<span class="c-brand">
+@if (routerLink) {
+  <ng-container [ngTemplateOutlet]="useLink"></ng-container>
+}
+@else {
+<ng-container [ngTemplateOutlet]="useSpan"></ng-container>
+}
+
+<ng-template #useLink>
+  <a class="c-brand" [routerLink]="routerLink">
+    <ng-container [ngTemplateOutlet]="tmplContent"></ng-container>
+  </a>
+</ng-template>
+<ng-template #useSpan>
+  <span class="c-brand">
+    <ng-container [ngTemplateOutlet]="tmplContent"></ng-container>
+  </span>
+</ng-template>
+
+
+<ng-template #tmplContent>
   @if (type === brandType.logotype) {
     <ng-container [ngTemplateOutlet]="logotype"></ng-container>
   }
@@ -9,7 +28,7 @@
   @if (type === brandType.isotype) {
     <ng-container [ngTemplateOutlet]="isotype"></ng-container>
   }
-</span>
+</ng-template>
 
 <ng-template #isotype>
   <svg class="c-brand-logo"

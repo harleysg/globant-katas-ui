@@ -1,0 +1,21 @@
+.register-form-wrapper {
+  --auth-wrapper-content-margin-inline: left;
+  --auth-wrapper-shadow-padding: 0;
+
+  @media screen and (width >=650px) {
+    --auth-wrapper-shadow-padding: 3rem;
+    --auth-wrapper-content-max-width: 417px;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3ch;
+  }
+
+  .submit-button {
+    @media screen and (width >=650px) {
+      --input-host-width: max-content;
+    }
+  }
+}

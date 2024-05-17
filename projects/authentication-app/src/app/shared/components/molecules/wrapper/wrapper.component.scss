@@ -10,20 +10,20 @@
 }
 
 .body {
+  display: flex;
+  row-gap: 1rem;
+  flex-direction: column;
   width: 100%;
   margin: auto;
-  overflow: hidden;
-  display: flex;
   max-width: var(--auth-wrapper-max-width, auto);
-  flex-direction: column;
-  row-gap: 1rem;
+  overflow: hidden;
 
   &.useForm {
     --auth-wrapper-border-radius: 2rem;
   }
 
   .shadow {
-    padding-block: 3rem;
+    padding: var(--auth-wrapper-shadow-padding, 3rem 0);
     display: inherit;
     flex-direction: column;
     gap: 2.5rem;
@@ -34,14 +34,18 @@
   .copy-right {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 3ch;
   }
 }
 
 
-.wrapper {
+.content {
   width: 100%;
   max-width: var(--auth-wrapper-content-max-width, auto);
-  margin-inline: auto;
+  margin-inline: var(--auth-wrapper-content-margin-inline, auto);
+  padding: var(--auth-wrapper-content-padding, 0);
+  box-shadow: var(--auth-wrapper-content-box-shadow, none);
 
   display: flex;
   flex-direction: column;

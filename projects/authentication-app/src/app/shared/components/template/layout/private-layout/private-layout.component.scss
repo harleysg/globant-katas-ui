@@ -1,0 +1,6 @@
+main, section {
+  min-height: 100%;
+  display: grid;
+  place-content: normal;
+  grid-template-rows: min-content 1fr minmax(5rem, min-content);
+}

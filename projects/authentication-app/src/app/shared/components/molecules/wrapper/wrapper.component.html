@@ -1,10 +1,10 @@
 <section class="body" [ngClass]="{'hasForm': (useForm | async)}">
   <div class="shadow">
-    <header class="wrapper">
+    <header class="content">
       <ng-content select="[heading]" />
     </header>
     <ng-container *ngTemplateOutlet="(useForm | async) ? formRef : bodyRef"></ng-container>
-    <footer class="wrapper">
+    <footer class="content">
       <ng-content select="[footer]"/>
     </footer>
   </div>
@@ -15,16 +15,15 @@
 </section>
 
 <ng-template #bodyRef>
-  <section class="wrapper">
+  <section class="content content-body">
     <ng-container *ngTemplateOutlet="contentTmpl"></ng-container>
   </section>
 </ng-template>
 <ng-template #formRef>
-  <form class="wrapper" (ngSubmit)="submit()" [formGroup]="formLoginGroup">
+  <form class="content content-body" (ngSubmit)="submit()" [formGroup]="formGroup">
     <ng-container *ngTemplateOutlet="contentTmpl"></ng-container>
   </form>
 </ng-template>
-
 <ng-template #contentTmpl>
-  <ng-content></ng-content>
+  <ng-content />
 </ng-template>

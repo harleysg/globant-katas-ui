@@ -1,6 +1,21 @@
-<button
-  class="c-btn {{classNames}}">
+@if (routerLink) {
+  <a 
+    [routerLink]="routerLink"
+    class="c-btn {{classNames}}">
+    <ng-template [ngTemplateOutlet]="content"></ng-template>
+  </a>
+}
+@else {
+  <button
+    (click)="handleEmit()"
+    class="c-btn {{classNames}}">
+    <ng-template [ngTemplateOutlet]="content"></ng-template>
+  </button>
+}
+
+
+<ng-template #content>
   <ng-content select="[left-icon]"></ng-content>
   <ng-content></ng-content>
   <ng-content select="[right-icon]"></ng-content>
-</button>
+</ng-template>

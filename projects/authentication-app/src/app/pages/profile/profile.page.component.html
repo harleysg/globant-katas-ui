@@ -1,1 +1,42 @@
-<p>profile works!</p>
+<div class="profile-page o-wrapper">
+  <header>
+    <h1>Personal info</h1>
+    <p>Basic info, like your name and photo</p>
+  </header>
+  <auth-wrapper class="form-wrapper">
+    <ng-container heading>
+      <section>
+        <div>
+          <h3>Profile</h3>
+          <p>Some info may be visible to other people</p>
+        </div>
+        <div>
+          <auth-button [routerLink]="['/profile/edit']">
+            <span class="button-wrapper">
+              Edit
+            </span>
+          </auth-button>
+        </div>
+      </section>
+    </ng-container>
+    <ng-container>
+      <article class="profile-info-article">
+        @for (row of userData; track row) {
+          <section>
+            <div class="key">{{row.key| uppercase }}</div>
+            @if (row.key == 'Photo') {
+              <div class="value"><img [src]="row.value" alt="''"></div>
+            }
+            @else if (row.key == 'Password') {
+              <div class="value">******</div>
+            }
+            @else {
+              <p class="value">{{row.value}}</p>
+            }
+          </section>
+        }
+      </article>
+    </ng-container>
+    <ng-container footer></ng-container>
+  </auth-wrapper>
+</div>

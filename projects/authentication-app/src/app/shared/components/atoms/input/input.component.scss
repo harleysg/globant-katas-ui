@@ -1,6 +1,6 @@
 :host {
   display: flex;
-  width: 100%;
+  width: var(--input-host-width, 100%);
 
   --input-padding-inline: 1rem;
 }
@@ -9,7 +9,18 @@
   --label-shadow: rgba(248 113 113 / 1);
 }
 
+.use-resize {
+  resize: vertical;
+}
+
 label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5ch;
+}
+
+.outline {
   box-shadow: 0 0 0 1px var(--label-shadow, var(--app-brand-color-2)) inset;
   overflow: hidden;
   border-radius: 8px;
@@ -25,7 +36,7 @@ label {
     box-shadow: none;
   }
 
-  span {
+  figure {
     position: absolute;
     left: 0;
     aspect-ratio: 1 / 1;
@@ -66,4 +77,17 @@ input[type='button'] {
   font-size: calc(var(--app-font-size) * 1.6);
   border: none;
   cursor: pointer;
+  color: white;
+}
+
+textarea {
+  width: 100%;
+  min-height: 5.25rem;
+  background-color: transparent;
+  padding-inline: var(--input-padding-left, 3rem var(--input-padding-inline));
+  border-radius: 8px;
+  border: none;
+  resize: none;
+  field-sizing: content;
+  padding-block: 1rem 0.5rem;
 }

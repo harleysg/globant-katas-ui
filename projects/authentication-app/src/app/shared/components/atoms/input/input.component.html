@@ -1,15 +1,51 @@
-<label
-  [ngClass]="{
-    'without-image': !image,
-    'border-red-400': invalid
-  }">
-  @if (image) {
-    <span><img [src]="image" [alt]="''"></span>
+<label>
+  @if (text) {
+    <span>{{text}}</span>
   }
-  <input
-    [formControl]="control"
-    [value]="label"
-    [attr.placeholder]='placeholder'
-    [attr.pattern]="pattern"
-    [attr.type]="type">
+  <div class="outline"
+    [ngClass]="{
+      'without-image': !image,
+      'use-resize': resize,
+      'border-red-400': invalid
+    }">
+    @if (image) {
+      <figure><img [src]="image" [alt]="''"></figure>
+    }
+    @if (controlName) {
+      @if (type === 'textArea') {
+        <textarea
+          [formControlName]="controlName"
+          [attr.placeholder]='placeholder'
+          [attr.pattern]="pattern"
+          [attr.resize]="resize">
+        </textarea>
+      }
+      @else {
+        <input
+          [formControlName]="controlName"
+          [attr.accept]="accept"
+          [attr.placeholder]='placeholder'
+          [attr.pattern]="pattern"
+          [attr.type]="type">
+      }
+    }
+    @else {
+      @if (type === 'textArea') {
+        <textarea
+          [formControl]="control"
+          [attr.placeholder]='placeholder'
+          [attr.pattern]="pattern"
+          [attr.resize]="resize">
+        </textarea>
+      }
+      @else {
+        <input
+          [formControl]="control"
+          [attr.accept]="accept"
+          [attr.placeholder]='placeholder'
+          [attr.pattern]="pattern"
+          [attr.type]="type">
+      }
+    }
+  </div>
 </label>

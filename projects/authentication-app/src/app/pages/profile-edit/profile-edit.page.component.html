@@ -1,0 +1,54 @@
+<div class="edit-page o-wrapper">
+  <auth-button (emitAction)="back()" [styles]="'flat'" >
+    <span class="button-wrapper">
+      <svg viewBox="0 0 320 512" class="chevron">
+        <path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+      </svg>
+      Back
+    </span>
+  </auth-button>
+  <auth-wrapper class="register-form-wrapper" [formGroup]="form" (submitEmmiter)="submit()">
+    <ng-container heading>
+      <div>
+        <h1>Change Info</h1>
+        <p>Changes will be reflected to every services</p>
+      </div>
+    </ng-container>
+    <ng-container>
+      <section class="register-form-wrapper-content">
+        <!-- Works but the values dont changes -->
+        <!-- @for (control of controls; track control) {
+          <auth-input
+            [type]="control.type"
+            [control]="control.control"
+            placeholder="Enter your name..." [text]="control.name" />
+        } -->
+        
+        <label>
+          <img alt="" #imageRef>
+          <input type="file" accept="image/*" (input)="onChangeImage($event)">
+          <span>Change Photo</span>
+        </label>
+
+        @for (control of userData; track control) {
+          @if (control.key !== 'photo') {
+            <label>
+              <span>{{control.key}}</span>
+              <span class="outline">
+                @if (control.type === 'textArea') {
+                  <textarea
+                    [formControlName]="control.key">
+                  </textarea>
+                }
+                @else {
+                  <input [type]="control.type" [formControlName]="control.key">
+                }
+              </span>
+            </label>
+          }
+        }
+        <auth-input type="submit" label="Save" value="Save" class="submit-button" />
+      </section>
+    </ng-container>
+  </auth-wrapper>
+</div>

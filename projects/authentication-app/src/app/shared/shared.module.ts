@@ -5,7 +5,7 @@ import { ButtonComponent } from './components/atoms/button/button.component';
 import { InputComponent } from './components/atoms/input/input.component';
 import { WrapperComponent } from './components/molecules/wrapper/wrapper.component';
 import { SocialProfileComponent } from './components/molecules/social-profile/social-profile.component';
-
+// -----
 const atoms = [BrandComponent, ButtonComponent, InputComponent]
 const molecules = [WrapperComponent, SocialProfileComponent]
 

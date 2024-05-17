@@ -15,18 +15,18 @@ import { AsyncPipe, NgClass, NgTemplateOutlet } from '@angular/common'
 export class WrapperComponent implements OnChanges {
   @Input() sendLabel: string = ''
   @Input() useBrand: boolean = false
-  @Input() formLoginGroup!: FormGroup<any>
+  @Input() formGroup!: FormGroup<any>
 
   submitEmmiter = output<any>()
   useForm!: Promise<boolean>;
 
   submit(): void {
-    this.submitEmmiter.emit(this.formLoginGroup.value)
+    this.submitEmmiter.emit(this.formGroup.value)
   }
   
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['formLoginGroup']) {
-      if (this.formLoginGroup) {
+    if (changes['formGroup']) {
+      if (this.formGroup) {
         this.useForm = Promise.resolve(true);
       } else {
         this.useForm = Promise.resolve(false);
