@@ -24,10 +24,10 @@
         @for (row of userData; track row) {
           <section>
             <div class="key">{{row.key| uppercase }}</div>
-            @if (row.key == 'Photo') {
+            @if (row.key == 'photo') {
               <div class="value"><img [src]="row.value" alt="''"></div>
             }
-            @else if (row.key == 'Password') {
+            @else if (row.key == 'password') {
               <div class="value">******</div>
             }
             @else {

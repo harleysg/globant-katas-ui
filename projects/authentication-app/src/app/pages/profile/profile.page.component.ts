@@ -1,8 +1,10 @@
 import { UpperCasePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 // -----
 import { ButtonComponent } from '@shared/components/atoms/button/button.component';
 import { WrapperComponent } from '@shared/components/molecules/wrapper/wrapper.component';
+import { UserInfo } from '@shared/types';
 
 @Component({
   selector: 'auth-profile',
@@ -11,17 +13,25 @@ import { WrapperComponent } from '@shared/components/molecules/wrapper/wrapper.c
   templateUrl: './profile.page.component.html',
   styleUrl: './profile.page.component.scss'
 })
-export class ProfilePageComponent {
+export class ProfilePageComponent implements OnInit {
+  private route = inject(ActivatedRoute)
+  public user?: UserInfo
+
   userData = [
-    {key: 'Photo', value: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png'},
-    {key: 'Name', value: 'Alma Sofia Santos Soto'},
-    {key: 'Bio', value: 'I am little baby closing to arrive to this world... I`m exiting to know my parents, thay are a software developer and a big fan of devchallenges'},
-    {key: 'Phone', value: '3502342343'},
-    {key: 'Email', value: 'almaSofiaSS@gmail.com'},
-    {key: 'Password', value: '123456'},
+    {key: 'photo', value: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png'},
+    {key: 'bio', value: 'I am little baby closing to arrive to this world... I`m exiting to know my parents, thay are a software developer and a big fan of devchallenges'},
+    {key: 'phone', value: '3502342343'},
   ]
 
-  getFormValue(value: any): void {
-    console.log('👨‍🚀 ~ getFormValue ~ value:', value)
+  ngOnInit(): void {
+    this.route.data.subscribe(response => {
+      this.user = response['profile']
+
+      if (!this.user) return
+
+      this.userData.push({key: 'email', value: this.user.email})
+      this.userData.push({key: 'name', value: this.user.name})
+      this.userData.push({key: 'password', value: this.user.password})
+      })
   }
 }
