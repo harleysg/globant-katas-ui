@@ -25,6 +25,8 @@
     ],
     "paths": {
       "@shared/*": ["./projects/authentication-app/src/app/shared/*"],
+      "@services/*": ["./projects/authentication-app/src/app/shared/service/*"],
+      "@env/*": ["./projects/authentication-app/src/environments/*"],
     }
   },
   "angularCompilerOptions": {
