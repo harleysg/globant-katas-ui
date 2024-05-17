@@ -27,12 +27,15 @@
 }
 
 .profile-info-article {
+  display: grid;
+  row-gap: 1rem;
+
   section {
     padding: .5rem;
     display: grid;
     flex-wrap: wrap;
     grid-template-columns: 1fr;
-    row-gap: 2rem;
+    row-gap: .5rem;
 
     .key {
       box-shadow: 0 1px 0 0 #e0e0e050;
@@ -52,8 +55,12 @@
         margin-right: auto;
       }
     }
+  }
 
-    @media screen and (width >=650px) {
+  @media screen and (width >=650px) {
+    row-gap: 0;
+
+    section {
       box-shadow: 0 -1px 0 0 #e0e0e0;
       row-gap: 0;
       column-gap: 3rem;

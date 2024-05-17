@@ -6,12 +6,13 @@
   @media screen and (width >=650px) {
     --auth-wrapper-shadow-color: var(--app-brand-color-2);
     --auth-wrapper-content-max-width: 75%;
+    --auth-wrapper-body-row-gap: 1rem;
   }
 }
 
 .body {
   display: flex;
-  row-gap: 1rem;
+  row-gap: var(--auth-wrapper-body-row-gap, 5rem);
   flex-direction: column;
   width: 100%;
   margin: auto;

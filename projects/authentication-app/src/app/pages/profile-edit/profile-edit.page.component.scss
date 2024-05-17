@@ -15,9 +15,13 @@
 .register-form-wrapper {
   --auth-wrapper-content-margin-inline: left;
   --auth-wrapper-shadow-padding: 0;
+  --auth-wrapper-content-max-width: auto;
 
   @media screen and (width >=650px) {
     --auth-wrapper-shadow-padding: 3rem;
+  }
+
+  @media screen and (width >=768px) {
     --auth-wrapper-content-max-width: 417px;
   }
 
