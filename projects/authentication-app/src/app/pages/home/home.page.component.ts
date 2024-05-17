@@ -1,17 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgTemplateOutlet } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 // -----
 import { SharedModule } from '@shared/shared.module';
-
-/**
- * Login Flow / Payload
- */
-export type LoginFormControl = {
-  email: FormControl,
-  password: FormControl
-}
+import { AuthenticationService } from '@services/authentication/authentication.service';
+import { LoginFormControl } from '@shared/types';
 
 @Component({
   selector: 'auth-home',
@@ -22,28 +16,21 @@ export type LoginFormControl = {
 })
 export class HomePageComponent {
   public formGroup!: FormGroup<LoginFormControl>
+  private authService = inject(AuthenticationService)
 
   constructor() {
-    const formGroupConfig = {
+    this.formGroup = new FormGroup({
+      email: new FormControl('', [ Validators.required, Validators.email ]),
+      password: new FormControl('', [ Validators.required ])
+    }, {
       validators: []
-    }
-    const controls = {
-      email: new FormControl('', [
-        Validators.required
-      ]),
-      password: new FormControl('', [
-        Validators.required
-      ])
-    }
-    this.formGroup = new FormGroup(controls, formGroupConfig)
+    })
   }
 
   submit(): void {
-    if (this.formGroup.valid) {}
-
-    console.log('👨‍🚀 ~ HomePageComponent ~ submit:', {
-      isValid: this.formGroup.valid,
-      value: this.formGroup.value
-    })
+    if (this.formGroup.valid) {
+      const { email, password } = this.formGroup.value
+      this.authService.login({ email, password })
+    }
   }
 }
