@@ -1,0 +1,33 @@
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5ch;
+
+  &:has(input[type=file]) {
+    align-items: center;
+    max-width: max-content;
+    display: grid;
+    grid-template-columns: 3rem 0 1fr;
+    position: relative;
+
+    &:has(input:focus-visible) {
+      outline: auto;
+      outline-offset: 2px;
+    }
+
+    input[type=file] {
+      width: 0;
+      height: 0;
+      padding: 0;
+    }
+
+    img {
+      aspect-ratio: 1 / 1;
+      width: 3rem;
+      height: 3rem;
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png);
+      background-size: contain;
+    }
+  }
+}
