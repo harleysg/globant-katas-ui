@@ -30,16 +30,19 @@ export const routes: Routes = [
     path: 'profile',
     component: PrivateLayoutComponent,
     canActivate: [loggedGuard],
-    resolve: {
-      profile: userResolver
-    },
     children: [
       {
         path: '',
+        resolve: {
+          profile: userResolver
+        },
         loadComponent: () => import('./pages/profile/profile.page.component').then(comp => comp.ProfilePageComponent)
       },
       {
         path: 'edit',
+        resolve: {
+          profile: userResolver
+        },
         loadComponent: () => import('./pages/profile-edit/profile-edit.page.component').then(comp => comp.ProfileEditPageComponent)
       }
     ]
