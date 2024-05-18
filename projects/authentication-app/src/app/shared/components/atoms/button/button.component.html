@@ -1,5 +1,5 @@
 @if (routerLink) {
-  <a 
+  <a
     [routerLink]="routerLink"
     class="c-btn {{classNames}}">
     <ng-template [ngTemplateOutlet]="content"></ng-template>
@@ -8,6 +8,7 @@
 @else {
   <button
     (click)="handleEmit()"
+    [name]="name"
     class="c-btn {{classNames}}">
     <ng-template [ngTemplateOutlet]="content"></ng-template>
   </button>

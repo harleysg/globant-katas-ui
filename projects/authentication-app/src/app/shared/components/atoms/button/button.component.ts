@@ -24,7 +24,8 @@ export class ButtonComponent implements OnChanges {
   @Input() styles: StyleType = 'huge'
   @Input() aspectRatio: number = 1
   @Input() routerLink: string | string[] | undefined = undefined
-  
+  @Input() name: string = ''
+
   // @Output() emitAction = output<any>() // minor than angular 16
   emitAction = output<void>() // Angular 17
   classNames = '';
