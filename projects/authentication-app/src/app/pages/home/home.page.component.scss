@@ -14,5 +14,13 @@
 
   .heading {
     max-width: 40ch;
+    display: flex;
+    flex-direction: column;
+    row-gap: 27px;
+
+    div {
+      display: grid;
+      row-gap: 14px;
+    }
   }
 }

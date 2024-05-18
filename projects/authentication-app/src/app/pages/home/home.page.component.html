@@ -1,13 +1,13 @@
 <div class="home o-wrapper">
-  <auth-wrapper sendLabel="Start coding now" (submitEmmiter)="submit()" [formGroup]="formGroup">
+  <auth-wrapper (submitEmmiter)="submit()" [formGroup]="formGroup">
     <ng-container heading>
-      <header>
+      <section class="heading">
         <auth-brand />
-        <section class="heading">
+        <div>
           <h1 class="o-heading">Join thousands of learners from around the world</h1>
           <p>Master web development by making real-life projects. There are multiple paths for you to choose</p>
-        </section>
-      </header>
+        </div>
+      </section>
     </ng-container>
     <ng-container>
       <auth-input
@@ -28,13 +28,9 @@
       <auth-input name="submit" [value]="'Login'" type="submit" />
     </ng-container>
     <ng-container footer>
-      <section>
-        <p>or continue with these social profile</p>
-        <auth-social-profile />
-      </section>
-      <section>
-        <p>Adready a member? <a [routerLink]="['/register']" routerLinkActive="router-link-active">register</a></p>
-      </section>
+      <p>or continue with these social profile</p>
+      <auth-social-profile />
+      <p>Already a member? <a [routerLink]="['/register']" routerLinkActive="router-link-active">register</a></p>
     </ng-container>
   </auth-wrapper>
 </div>
