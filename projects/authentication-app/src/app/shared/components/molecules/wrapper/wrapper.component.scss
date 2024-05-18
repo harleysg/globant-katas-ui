@@ -7,6 +7,7 @@
     --auth-wrapper-shadow-color: var(--app-brand-color-2);
     --auth-wrapper-content-max-width: 75%;
     --auth-wrapper-body-row-gap: 1rem;
+    --auth-wrapper-shadow-padding: 3rem 0;
   }
 }
 
@@ -24,7 +25,7 @@
   }
 
   .shadow {
-    padding: var(--auth-wrapper-shadow-padding, 3rem 0);
+    padding: var(--auth-wrapper-shadow-padding, 1rem 0);
     display: inherit;
     flex-direction: column;
     gap: 2.5rem;
