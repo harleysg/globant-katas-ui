@@ -23,12 +23,8 @@
             [control]="control.control"
             placeholder="Enter your name..." [text]="control.name" />
         } -->
-        
-        <label>
-          <img alt="" #imageRef>
-          <input type="file" accept="image/*" (input)="onChangeImage($event)">
-          <span>Change Photo</span>
-        </label>
+
+        <auth-input-file (emitImage)="onChangeImage($event)" />
 
         @for (control of userData; track control) {
           @if (control.key !== 'photo') {
@@ -41,7 +37,7 @@
                   </textarea>
                 }
                 @else {
-                  <input [type]="control.type" [formControlName]="control.key">
+                  <input [type]="control.type" [formControlName]="control.key" [value]="control.value">
                 }
               </span>
             </label>

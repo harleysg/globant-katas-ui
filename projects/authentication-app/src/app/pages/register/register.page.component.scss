@@ -1,6 +1,6 @@
 .register-form-wrapper {
   --auth-wrapper-content-margin-inline: left;
-  --auth-wrapper-shadow-padding: 0;
+  // --auth-wrapper-shadow-padding: 0;
   --auth-wrapper-content-max-width: auto;
 
   @media screen and (width >=650px) {
@@ -21,5 +21,139 @@
     @media screen and (width >=650px) {
       --input-host-width: max-content;
     }
+  }
+
+  .heading {
+    max-width: 40ch;
+    display: flex;
+    flex-direction: column;
+    row-gap: 27px;
+
+    &:has(h1) {
+      h1 {
+        margin: 0;
+      }
+    }
+
+    div {
+      display: grid;
+      row-gap: 14px;
+    }
+  }
+
+  // INPUT FILE
+
+  label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5ch;
+
+    &:has(input[type=file]) {
+      align-items: center;
+      max-width: max-content;
+      display: grid;
+      grid-template-columns: 3rem 0 1fr;
+      position: relative;
+
+      &:has(input:focus-visible) {
+        outline: auto;
+        outline-offset: 2px;
+      }
+
+      input[type=file] {
+        width: 0;
+        height: 0;
+        padding: 0;
+      }
+
+      img {
+        aspect-ratio: 1 / 1;
+        width: 3rem;
+        height: 3rem;
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png);
+        background-size: contain;
+      }
+    }
+  }
+
+  // INPUT COMPONENT
+
+  label {
+    --input-padding-inline: 0.5rem;
+    --input-padding-left: var(--input-padding-inline);
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5ch;
+  }
+
+  .outline {
+    box-shadow: 0 0 0 1px var(--label-shadow, var(--app-brand-color-2)) inset;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    width: 100%;
+
+    &:has(input:focus-visible),
+    &:has(input[type='submit']) {
+      box-shadow: none;
+    }
+
+    figure {
+      position: absolute;
+      left: 0;
+      aspect-ratio: 1 / 1;
+      width: 3rem;
+      padding: 0.9rem;
+      user-select: none;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  input:not([type='checkbox']),
+  input:not([type='radio']) {
+    overflow: hidden;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+  }
+
+  input:not([type='button']),
+  input:not([type='checkbox']),
+  input:not([type='radio']) {
+    min-height: 3.25rem;
+    background-color: transparent;
+    padding-inline: var(--input-padding-left, 3rem var(--input-padding-inline));
+  }
+
+  input[type='submit'],
+  input[type='button'] {
+    min-height: 2.7rem;
+    background-color: var(--app-brand-color-3);
+    font-size: calc(var(--app-font-size) * 1.6);
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 5.25rem;
+    background-color: transparent;
+    padding-inline: var(--input-padding-left, 3rem var(--input-padding-inline));
+    border-radius: 8px;
+    border: none;
+    resize: none;
+    field-sizing: content;
+    padding-block: 1rem 0.5rem;
   }
 }

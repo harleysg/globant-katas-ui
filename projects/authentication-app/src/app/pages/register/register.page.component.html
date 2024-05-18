@@ -1,28 +1,40 @@
 <div class="o-wrapper">
-  <auth-wrapper class="register-form-wrapper">
+  <auth-wrapper class="register-form-wrapper" [formGroup]="form" (submitEmmiter)="submit()">
     <ng-container heading>
-      <div>
-        <h1>Change Info</h1>
-        <p>Changes will be reflected to every services</p>
-      </div>
+      <section class="heading">
+        <auth-brand />
+        <div>
+          <h1>Change Info</h1>
+          <p>Changes will be reflected to every services</p>
+        </div>
+      </section>
     </ng-container>
     <ng-container>
       <div class="register-form-wrapper-content">
-        <label>
-          <img src="" alt="">
-        </label>
-        <auth-input type="text" label="Name" name="name" placeholder="Enter your name..." text="Name" />
-        <auth-input type="textArea" label="Bio" name="bio" placeholder="Enter your bio..." text="Bio"/>
-        <auth-input type="number" label="Phone" name="phone" placeholder="Enter your phone..." text="Phone" />
-        <auth-input type="email" label="Email" name="email" placeholder="Enter your email..." text="Email"/>
-        <auth-input type="password" label="Password" name="password" placeholder="Enter your new password..." text="Password"/>
+        <auth-input-file (emitImage)="onChangeImage($event)" />
+
+        @for (control of userData; track control) {
+          @if (control.key !== 'photo') {
+            <label>
+              <span>{{control.key}}</span>
+              <span class="outline">
+                @if (control.type === 'textArea') {
+                  <textarea
+                    [formControlName]="control.key">
+                  </textarea>
+                }
+                @else {
+                  <input
+                    [type]="control.type"
+                    [formControlName]="control.key">
+                }
+              </span>
+            </label>
+          }
+        }
+
         <auth-input type="submit" label="Save" value="Save" class="submit-button" />
       </div>
-    </ng-container>
-    <ng-container footer>
-      <section>
-        <p>Adready a member? <a [routerLink]="['/profile']" routerLinkActive="router-link-active">profile</a></p>
-      </section>
     </ng-container>
   </auth-wrapper>
 </div>
